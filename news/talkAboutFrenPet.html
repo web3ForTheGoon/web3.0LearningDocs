@@ -1,0 +1,551 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><meta charset="UTF-8" name="Content-Type" /><meta http-equiv="X-UA-Compatible" content="IE=edge" /><title>
+	详解 Fren Pet ：Base 链上的电子宠物，如何将收益最大化？ - 深潮TechFlow
+</title>
+      <meta name="keywords" content=" 深潮TechFlow,区块链媒体,区块链资讯,区块链深度分析,区块链是什么,区块链技术,区块链应用,区块链,区块链热点" />
+    <meta name="description" content="在游戏里，你需要照顾你的宠物以避免它死亡，通过投喂食物或清洗会延长宠物的死亡时间。" />
+    <link rel="stylesheet" href="/css/gloabal.css" /><link rel="stylesheet" href="/css/style.css" />
+
+      <meta property="og:url" content="https://www.techflowpost.com/article/detail_14596.html" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="详解 Fren Pet ：Base 链上的电子宠物，如何将收益最大化？ - 深潮TechFlow"/>
+    <meta property="og:site_name" content="TechFlow" />
+    <meta property="og:description" content="在游戏里，你需要照顾你的宠物以避免它死亡，通过投喂食物或清洗会延长宠物的死亡时间。"/>
+    <meta property="og:image" content="https://upload.techflowpost.com//upload/images/20231120/2023112014310375531516.jpeg"/>
+    <meta name="twitter:card" content="summary_large_image"/> 
+    <meta property="twitter:url" content="https://www.techflowpost.com/article/detail_14596.html"/>
+    <meta name="twitter:title" content="详解 Fren Pet ：Base 链上的电子宠物，如何将收益最大化？ - 深潮TechFlow"/>
+    <meta name="twitter:description" content="在游戏里，你需要照顾你的宠物以避免它死亡，通过投喂食物或清洗会延长宠物的死亡时间。"/>
+    <meta property="twitter:image" content="https://upload.techflowpost.com//upload/images/20231120/2023112014310375531516.jpeg"/>
+    <script src="/js/jquery.min.js?2023-8-28"></script>
+    <script type="text/javascript" src="/js/chinese.js?2315"></script>
+  
+    <script>
+        //亮黑切换
+        localStorage.getItem("skin_switch") == "1" ? document.getElementsByTagName('body')[0].classList.add('dark') : '';
+        function setRem() { let designSize = 1440; let html = document.documentElement; let wW = html.clientWidth; let rem = wW * 100 / designSize; rem = parseInt(rem); if (rem < 70) rem = 70; document.documentElement.style.fontSize = rem + "px"; } setRem(); window.onload = function () { setRem(); }; window.onresize = function () { setRem() }; function restindex() { }
+        // 设置 rem 函数
+        //function setRem () {
+        //    //  PC端
+        //    var baseSize = 100,desw=1440,desh=734;
+        //    let basePc = baseSize / desw;
+        //    let vW = window.innerWidth;
+        //    let vH = window.outerHeight;
+        //    let dueH = vW * desh / desw
+        //    if (vH < dueH) {vW = vH * desh /desw}
+        //    let rem = vW * basePc;
+        //    //if(rem>100)rem=100;
+        //    rem=parseInt(rem);
+        //    rem= rem<70?70:rem;
+                
+        //    document.documentElement.style.fontSize =  rem + "px";
+        //}
+        //setRem();
+        //window.onload=function(){
+        //    setRem();
+        //}
+            
+        //window.onresize = function () {
+        //    setRem()
+        //};
+    </script>
+    
+</head>
+<body class=" hsheader">    
+    <div id="allmain">
+        <div class="header dbd">
+            <a href="/index.html" class="logo bothimg">
+                <img src="/images/logo_white.svg" /><img src="/images/logo_dark.svg" /></a>
+            <div class="txtr f0">
+                <div class="search vmid">
+                    <p class="f14">
+                        <input type="text" placeholder="搜索" value="" class="clearinput" />
+                    </p>
+                    <svg width="19" height="19" viewBox="0 0 19 19" class="dico vmid sear" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8 16C9.77498 15.9996 11.4988 15.4054 12.897 14.312L17.293 18.708L18.707 17.294L14.311 12.898C15.405 11.4997 15.9996 9.77544 16 8C16 3.589 12.411 0 8 0C3.589 0 0 3.589 0 8C0 12.411 3.589 16 8 16ZM8 2C11.309 2 14 4.691 14 8C14 11.309 11.309 14 8 14C4.691 14 2 11.309 2 8C2 4.691 4.691 2 8 2Z" fill="#000000" />
+                    </svg>
+                </div>
+                <p class="switch vmid">
+                    <i class="bothimg">
+                        <img src="/images/switch_white.svg" width="16" /><img src="/images/switch_dark.svg" width="16" /></i>
+                </p>
+                <div class="vmid dl dbd logincont f0 vmidall" >
+                    <i class="login_ico"></i><a href="javascript:;" class="dfont regist f16 ml10">注册</a><i class="f16 dl mlr10">/</i><a href="javascript:;" class="wallet f16 login">登录</a>
+                </div>
+                <div class="vmid dl dbd logincont f0 hovercontent sp2" id="logined" style="display:none">
+                    <div class="hcont sp2">
+                        <div class="personal_menu">
+                            <a href="/user/index.html">
+                                <i><img src="/images/personal_menu1_ico.svg" class="w20" /></i><b>个人中心</b></a>
+                           
+                            <a href="javascript:;" onclick="out()">
+                                <i><img src="/images/personal_menu3_ico.svg" class="w20" /></i><b>退出登录</b></a>
+                        </div>
+                    </div>
+                    <p class="line40 pt15 pb15 txtl clearfix">
+                        <img src="/images/blankbg.gif" class="bgcover bbx bd1 brd100 h40 vmid" style="background-image: url(https://upload.techflowpost.com/images/default_face.png)" /><b class="f16 vmid pl15 pr15"></b><i class="fr"><svg width="12" height="6" viewBox="0 0 12 6" fill="none" xmlns="http://www.w3.org/2000/svg" class="w12 vmid arrow_down"><path d="M6 6L0 0H12L6 6Z" fill="black" /></svg></i></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="clearfix">
+            <div id="download_app" >
+                <a href="/download/index.html"><img src="/images/app_download.png" /></a><i class="close_ico" onclick="closedown(this)"></i>
+            </div>
+            <div class="nav_left">
+                <a href="/index.html" class=""><i>
+                    <img src="/images/nav_left_1_ico.svg" /></i><em>首页</em></a>
+                <a href="/article/index.html" class="crently"><i>
+                    <img src="/images/nav_left_2_ico.svg" /></i><em>深潮精选</em></a>
+                <a href="/research/index.html" class=""><i>
+                    <img src="/images/nav_left_3_ico.svg" /></i><em>Research</em></a>
+                <a href="/project/index.html" class=""><i>
+                    <img src="/images/nav_left_4_ico.svg" /></i><em>项目发现</em></a>
+                <a href="/newsletter/index.html" class=""><i>
+                    <img src="/images/nav_left_5_ico.svg" /></i><em>7x24h︎快讯</em></a>
+                <!-- <a href="#" class=""><i><img src="/images/nav_left_6_ico.svg" /><img src="/images/nav_left_6_h_ico.svg" /></i><em>热门专题</em></a> -->
+                <a href="/events/index.html" class=""><i>
+                    <img src="/images/nav_left_7_ico.svg" /></i><em>最新活动</em></a>
+           
+            </div>
+            
+    <div class="main_right dbd">
+        <div class="flex">
+
+
+            <!--TechFlow Insight-->
+            <div class="content_news1 sp2 dbd">
+                <div class="detail_header">
+                    <div class="img f0">
+                        <img src="/images/opa_89v52.png" class="bgcover wp100" style="background-image: url(https://upload.techflowpost.com//upload/images/20231120/2023112014310375531516.jpeg)" />
+                    </div>
+                    <div class="content">
+                        
+                        <div class="tit fw">详解 Fren Pet ：Base 链上的电子宠物，如何将收益最大化？</div>
+                        <div class="relative">
+                            <div class="time">2023.11.20 <i>- 18 小时前</i></div>
+                            <div class="share" id="share_action">
+                                <i>分享至</i><div class="bshare-custom"><a title="分享到Twitter" class="bshare-twitter" href="https://twitter.com/intent/tweet?url=https://m.techflowpost.com/article/detail_14596.html&text=详解 Fren Pet ：Base 链上的电子宠物，如何将收益最大化？" target="_blank"><b>分享到Twitter</b></a><a title="分享至微信" class="bshare-weixin" href="javascript:;"><p>
+                                    <img src="/ex/ewm.jpg"><i>分享至微信</i></p>
+                                    <b>分享至微信</b></a><a title="分享至微博" class="bshare-sinaminiblog" target="_blank" href="https://service.weibo.com/share/share.php?title=详解 Fren Pet ：Base 链上的电子宠物，如何将收益最大化？&appkey=sxandroid&url=https://m.techflowpost.com/article/detail_14596.html&content=utf-8&sourceUrl=https://m.techflowpost.com/article/detail_14596.html"><b>分享至微博</b></a><a title="分享文章链接" href="javascript:;" class="bshare-clipboard" data-clipboard-text="https://m.techflowpost.com/article/detail_14596.html"><b>分享文章链接</b></a><a title="分享图文海报" class="createphoto" href="javascript:void(0);" onclick="creatphoto()"><b>分享图文海报</b></a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="art_detail_content">
+                    <div class="quote">
+                        在游戏里，你需要照顾你的宠物以避免它死亡，通过投喂食物或清洗会延长宠物的死亡时间。
+                    </div>
+                    <p style="text-align:justify"><span style="color:#7f8c8d"><span style="font-size:14px"><span style="font-family:Arial,Helvetica,sans-serif">撰写：深潮 TechFlow</span></span></span></p>
+
+<p style="text-align:justify"><span style="font-size:16px"><span style="font-family:Arial,Helvetica,sans-serif"><img src="https://upload.techflowpost.com/upload/images/20231120/2023112014264605382882.jpg" /></span></span></p>
+
+<p style="text-align:justify"><span style="font-size:16px"><span style="font-family:Arial,Helvetica,sans-serif">朋友，你玩过拓麻歌子吗？如果说这个名字不太熟悉，那么宠物蛋、电子鸡呢？是否记起了那因疏于照顾而&ldquo;死掉&rdquo;的小宠物。它们曾风靡一时，因智能手机的迭代而没落。如今，Fren Pet 将它们带到了 Web3，你会在链上为&ldquo;情怀鸡&rdquo;买单吗？</span></span></p>
+
+<p style="text-align:justify"><span style="font-size:16px"><span style="font-family:Arial,Helvetica,sans-serif">如前所述，Fren Pet 是一款数码宠物类的 Web 游戏，建立在 Base 链上，开发者还承诺，只要玩家活跃，他们将每周开发一个新功能。</span></span></p>
+
+<p style="text-align:justify"><span style="font-size:16px"><span style="font-family:Arial,Helvetica,sans-serif">Fren Pet 的出现在 8 月 31 日，但随后的两个多月里并没有多少人气，人们只是把它当作 UX 类似 Frentech 的另一种仿盘。直到 11 月 18 日，Coinbase Wallet 单独发了这个游戏的信息，将众人的注意力集中在了它身上。</span></span></p>
+
+<p style="text-align:justify"><span style="font-size:16px"><span style="font-family:Arial,Helvetica,sans-serif"><img src="https://upload.techflowpost.com/upload/images/20231120/2023112014264798441459.jpg" /></span></span></p>
+
+<p style="text-align:justify"><span style="font-size:16px"><span style="font-family:Arial,Helvetica,sans-serif">同以往大家所知的 Base 游戏一样，下载 Fren Pet 的方式，也是将其&ldquo;添加到主屏幕&rdquo;（与FriendTech类似的模式，不用下载应用），以及需要邀请码和转入一些 ETH 才能开始游戏。</span></span></p>
+
+<p style="text-align:justify"><span style="font-size:16px"><span style="font-family:Arial,Helvetica,sans-serif">目前，铸造一只宠物需要花费 100 FP，但只要有其他人铸造宠物，系统就会将这 100 FP 返还。</span></span></p>
+
+<p style="text-align:justify"><span style="font-size:16px"><span style="font-family:Arial,Helvetica,sans-serif">在游戏里，你需要照顾你的宠物以避免它死亡，通过投喂食物或清洗会延长宠物的死亡时间。在你的宠物页面上你会看到不同的食物/清洗选项，你需要通过支付 $FP 代币来使用它们。</span></span></p>
+
+<p style="text-align:justify"><span style="font-size:16px"><span style="font-family:Arial,Helvetica,sans-serif">宠物页面的最上面你宠物的&ldquo;TOD&rdquo;（死亡时间）计时器。一旦你的宠物死亡，你的 NFT 就会被烧毁，你所有积分也将归零。</span></span></p>
+
+<p style="text-align:justify"><span style="font-size:16px"><span style="font-family:Arial,Helvetica,sans-serif">游戏中也有商店选项， 你可以在其中购买饰品以装扮你的宠物，和购买游戏内道具，例如保护你免受&ldquo;Bonk&rdquo;（下文会有介绍）的盾牌，或在宠物耗尽 TOD 并死亡时自动复活您的宠物的保险。</span></span></p>
+
+<p style="text-align:justify"><span style="font-size:16px"><span style="font-family:Arial,Helvetica,sans-serif"><img src="https://upload.techflowpost.com/upload/images/20231120/2023112014265028740474.jpg" /></span></span></p>
+
+<p style="text-align:justify"><span style="font-size:16px"><span style="font-family:Arial,Helvetica,sans-serif">所有物品均按照线性联合曲线（Bonding Curve) 以 $FP 进行交易。</span></span></p>
+
+<p style="text-align:justify"><span style="font-size:16px"><span style="font-family:Arial,Helvetica,sans-serif">积分代表了你宠物的等级，当你喂养宠物或洗澡时，你就会获得积分，例如喂茶可以获得 1 积分和增加 3 天死亡时间，但需要消耗 1 FP。积分越高，获得 ETH 的奖励也越多，在排行榜中的排名也越高。</span></span></p>
+
+<p style="text-align:justify"><span style="font-size:16px"><span style="font-family:Arial,Helvetica,sans-serif"><img src="https://upload.techflowpost.com/upload/images/20231120/2023112014280738310347.jpg" /></span></span></p>
+
+<p style="text-align:justify"><span style="font-size:16px"><span style="font-family:Arial,Helvetica,sans-serif">你也可以选择一次性将积分全部兑换为 ETH，这样的后果也将导致你的宠物等级归零。</span></span></p>
+
+<p style="text-align:justify"><span style="font-size:16px"><span style="font-family:Arial,Helvetica,sans-serif">除了经典的照顾宠物外，游戏还内置了两种游戏方式以得到积分:1）转盘和骰子；2) Bonk.</span></span></p>
+
+<p style="text-align:justify"><span style="font-size:16px"><span style="font-family:Arial,Helvetica,sans-serif">转盘是一种免费获取积分的方式，每 24 小时可以转动一次，通过转盘，玩家可以获得积分，或者 Noting！骰子则有一定的门槛，参与者需要支付 100 FP 才能参加游戏，每局游戏共有 6 名玩家，且将会有 100 个 FP 被烧掉，剩下的 500 个 FP 奖励给获胜者。</span></span></p>
+
+<p style="text-align:justify"><span style="font-size:16px"><span style="font-family:Arial,Helvetica,sans-serif"><img src="https://upload.techflowpost.com/upload/images/20231120/2023112014283335422678.jpg" /></span></span></p>
+
+<p style="text-align:justify"><span style="font-size:16px"><span style="font-family:Arial,Helvetica,sans-serif">Bonk 是游戏内一种 PvP 玩法，简单来说就是宠物战斗。每 15 分钟，你可以对高于你等级且 1 小时内没有被 Bonk 过的宠物进行攻击。在这场比赛中你有 40% 的机会赢，而等级更高的对手有 60% 的机会获胜。获胜者将获得失败者分数的 0.5%。</span></span></p>
+
+<h1 style="text-align:justify"><span style="font-size:16px"><span style="font-family:Arial,Helvetica,sans-serif">积分获取策略</span></span></h1>
+
+<p style="text-align:justify"><span style="font-size:16px"><span style="font-family:Arial,Helvetica,sans-serif">以上便是游戏内获取积分的方式，这也就引出了两种积分策略：<strong>低成本玩家和氪金玩家</strong>。</span></span></p>
+
+<p style="text-align:justify"><span style="font-size:16px"><span style="font-family:Arial,Helvetica,sans-serif"><strong>低成本/零撸玩家</strong></span></span></p>
+
+<p style="text-align:justify"><span style="font-size:16px"><span style="font-family:Arial,Helvetica,sans-serif">1、Mint 宠物后，你花费的 100FP（大概率）会返还</span></span></p>
+
+<p style="text-align:justify"><span style="font-size:16px"><span style="font-family:Arial,Helvetica,sans-serif">2、以最小成本保持宠物存活，即每日投喂茶即可：茶只需消耗 1 FP，能获得 1 积分和增加 3 天的死亡时间</span></span></p>
+
+<p style="text-align:justify"><span style="font-size:16px"><span style="font-family:Arial,Helvetica,sans-serif">3、每天转动转盘</span></span></p>
+
+<p style="text-align:justify"><span style="font-size:16px"><span style="font-family:Arial,Helvetica,sans-serif">4（可选）、每 15 分钟按一次&ldquo;Bonk&rdquo;攻击&ldquo;排行榜&rdquo;中的其他玩家，尝试赢得他们的 0.5%积分，请选择积分高于你 50%的玩家，最大化积分回报。濒死时及时投喂茶续命。</span></span></p>
+
+<p style="text-align:justify"><span style="font-size:16px"><span style="font-family:Arial,Helvetica,sans-serif"><strong>氪金玩家</strong></span></span></p>
+
+<p style="text-align:justify"><span style="font-size:16px"><span style="font-family:Arial,Helvetica,sans-serif">1、每天转动转盘</span></span></p>
+
+<p style="text-align:justify"><span style="font-size:16px"><span style="font-family:Arial,Helvetica,sans-serif">2、在商店里购买道具来装饰/保护你的宠物和你的积分</span></span></p>
+
+<p style="text-align:justify"><span style="font-size:16px"><span style="font-family:Arial,Helvetica,sans-serif">3、给宠物投喂啤酒来获得 1000 积分和增加 6 小时死亡时间，啤酒需要花费 50 FP</span></span></p>
+
+<p style="text-align:justify"><span style="font-size:16px"><span style="font-family:Arial,Helvetica,sans-serif">4、成为被攻击者而不是主动攻击者，因为成为被攻击者，你有 60% 的获胜机会。</span></span></p>
+
+<h1 style="text-align:justify"><span style="font-size:16px"><span style="font-family:Arial,Helvetica,sans-serif">FP 代币经济学</span></span></h1>
+
+<p style="text-align:justify"><span style="font-size:16px"><span style="font-family:Arial,Helvetica,sans-serif">团队并没有没有预留任何 FP 代币，游戏中使用的$FP 90% 被烧毁，10% 分配给不断拉新的玩家，也就是说，只要有新人通过你的邀请码进入游戏并消费，邀请人便可以获得<strong> 10%</strong>的奖励。</span></span></p>
+
+<p style="text-align:justify"><span style="font-size:16px"><span style="font-family:Arial,Helvetica,sans-serif">每次有人在 BaseSwap 上购买或出售 $FP 代币时，都要缴纳 5% 的税，一旦税收超过 1000 个<a href="https://twitter.com/search?q=%24FP&amp;src=cashtag_click">$FP</a>，合约就会自动转成 ETH 然后做如下分配：</span></span></p>
+
+<ul>
+	<li>
+	<p style="text-align:justify"><span style="font-size:16px"><span style="font-family:Arial,Helvetica,sans-serif">2% 作为奖励给游戏玩家（积分越多 ETH 奖励越多，所获得 ETH 份额为玩家积分/所有玩家总积分）</span></span></p>
+	</li>
+	<li>
+	<p style="text-align:justify"><span style="font-size:16px"><span style="font-family:Arial,Helvetica,sans-serif">2% 归 Fren Pet 开发者所有</span></span></p>
+	</li>
+	<li>
+	<p style="text-align:justify"><span style="font-size:16px"><span style="font-family:Arial,Helvetica,sans-serif">1% 作为流动性供给加回以支持 FP 经济</span></span></p>
+	</li>
+</ul>
+
+<p style="text-align:justify"><span style="font-size:16px"><span style="font-family:Arial,Helvetica,sans-serif">自 18 日 Coinbase Wallet 发推以来，FP 的价格从 0.1 上涨至 1.4，涨幅有 10 倍有余。据<a href="https://basescan.org/tx/0x9ad3fb3eadb1ece96a58a26c8504dcc3b7359157439d4d80e65d92f54e67d17d">链上</a>数据观察，最早添加流动性的代币数量为 9,956,000 FP/1WETH，单币价约为 0.0002 美元，大约有七千倍的涨幅。</span></span></p>
+
+<p style="text-align:justify"><span style="font-size:16px"><span style="font-family:Arial,Helvetica,sans-serif">就目前的游戏热度来看，玩法还在不断迭代。从最近更新的 V2 版本也是不难看出游戏的开发者们一直在做事：更多的道具、上线 DNA 进化机制等。如前所述，项目方也承诺，只要玩家活跃，他们每周都会更新一些新内容，哪怕照搬传统数码宠物的游戏内容，Fren Pet 都还有一段旅程要进行。</span></span></p>
+
+<p style="text-align:justify"><span style="font-size:16px"><span style="font-family:Arial,Helvetica,sans-serif">对链上电子宠物来说，我们依然还在早期，是享受游戏，还是参与代币交易，请根据自身的风险偏好选择。</span></span></p>
+
+<p style="text-align:justify"><span style="font-size:16px"><span style="font-family:Arial,Helvetica,sans-serif"><img src="https://upload.techflowpost.com/upload/images/20231120/2023112014290930044519.jpg" /></span></span></p>
+
+                </div>
+                <div class="detail_header sp2">
+                    <div class="mlr30 relative line18 f18">
+                        &nbsp;
+
+                        <div class="mid_line absolute r0 t0 z2">
+                             <a href="javascript:;" class="c0137FE collect"><img src="/images/favor_ico.svg" class="h16 dl vmid mr10" /><em>添加收藏</em></a><i></i>
+                            <div class="hovercontent">
+                                <div class="hcont">
+                                    <div class="share" id="share_action2">
+                                        <div class="bshare-custom">
+                                            <div class="bsPromo bsPromo2"></div>
+                                            <a title="分享到Twitter" class="bshare-twitter" target="_blank" href="https://twitter.com/intent/tweet?url=https://m.techflowpost.com/article/detail_14596.html&text=详解 Fren Pet ：Base 链上的电子宠物，如何将收益最大化？"></a><a title="分享到微信" class="bshare-weixin" href="javascript:;">
+                                                <p>
+                                                    <img src="/ex/ewm.jpg"><b>分享到微信</b></p>
+                                            </a><a title="分享到新浪微博" target="_blank" class="bshare-sinaminiblog" href="https://service.weibo.com/share/share.php?title=详解 Fren Pet ：Base 链上的电子宠物，如何将收益最大化？&appkey=sxandroid&url=https://m.techflowpost.com/article/detail_14596.html&content=utf-8&sourceUrl=https://m.techflowpost.com/article/detail_14596.html"></a><a title="复制网址" href="javascript:;" class="bshare-clipboard" data-clipboard-text="https://m.techflowpost.com/article/detail_14596.html"></a><a title="生成图片海报" class="createphoto" href="javascript:void(0);" onclick="creatphoto()"></a></div>
+                                    </div>
+                                </div>
+                                <div class="bgfff relative z2">
+                                    <a href="javascript:;" class="c0137FE">
+                                        <img src="/images/sns_ico.svg" class="h16 dl vmid mr10" /><em>分享社交媒体</em></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dbd bt1  line32 pl30 pt13 pb13 article_auther">
+                    <i class="fw f14 dl vmid">作者</i><a href="/column/detail_user_4049.html" class="dl f0 vmid ml60 mc"><img src="/images/blankbg.gif" class="h32 brd100 bgcover dl vmid" style="background-image: url(https://upload.techflowpost.com/upload/images/20230419/2023041912432516780945.png)" /><i class="fw dl f16 vmid ml10">深潮 TechFlow</i></a><a href="https://twitter.com/TechFlowPost" target="_blank" class="dl vmid ml20 changeico mc"><i class="dl vmid ml20"><img src="/images/share_1_ico.svg " class="w14 "   /><img src="/images/share_1_h_ico.svg " class="w14 "   /></i><em class="dl vmid f12 ml6">深潮TechFlow</em></a>
+                </div>
+                <div class="pl30 pt30 pr30" style="display: none">
+                    <div class="line32">
+                        <i class="changeimgcolor w28"><img src="/images/comment_ico.svg" class="h26 vmid" /></i><i class="f20 fw dl ml10 vmid">精选解读</i>
+                    </div>
+                    <div class="comment_list">
+                        
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="content_news2 dbd sp2 pb30">
+                <!--  -->
+                <div class="pt30"></div>
+                <div class="chead mlr30"><i class="bgFF3257"></i>7x24h 快讯︎<a href="/newsletter/index.html">更多</a></div>
+                <div class="news_list2 pb30">
+
+
+                    
+                            <dl>
+                                <dt class="font-i dfont">5 分钟前</dt>
+                                <dd><a href="/newsletter/detail_34139.html" class="dfont  ">彭博社：90% 以上 OpenAI 员工签署公开信要求董事会辞职，否则将集体跟随 Altman 跳槽到微软</a></dd>
+                            </dl>
+                        
+                            <dl>
+                                <dt class="font-i dfont">8 小时前<img src="/images/hot_ico.png" /></dt>
+                                <dd><a href="/newsletter/detail_34138.html" class="dfont  ">SolanaFM 联合创始人 0xFA2 确认 “疑似Alameda相关地址接收6350万枚PYTH空投” 为假消息，该地址实为OKX地址</a></dd>
+                            </dl>
+                        
+                            <dl>
+                                <dt class="font-i dfont">8 小时前</dt>
+                                <dd><a href="/newsletter/detail_34136.html" class="dfont  ">Fantom基金会将奖励发现漏洞的安全研究员170万美元赏金</a></dd>
+                            </dl>
+                        
+                            <dl>
+                                <dt class="font-i dfont">9 小时前</dt>
+                                <dd><a href="/newsletter/detail_34135.html" class="dfont  ">Pyth Network宣布已发布PYTH/USD喂价</a></dd>
+                            </dl>
+                        
+                            <dl>
+                                <dt class="font-i dfont">9 小时前</dt>
+                                <dd><a href="/newsletter/detail_34134.html" class="dfont  ">Maker将于11月21日执行多项更改，包括将Spark D3M最高债务上限提高至8亿枚DAI等</a></dd>
+                            </dl>
+                        
+                </div>
+                <!--                          -->
+
+                <div class="bt1"></div>
+                <div class="new_top_sticky">
+                    <div class="pt30"></div>
+                    <div class="chead mlr30"><i class="bgCB01FE"></i>深潮精选<a href="/article/index.html">更多</a></div>
+                    <div class="news_list3">
+                        
+                                <dl>
+                                    <dt class="f0 dfont"><a href="/article/detail_14594.html">
+                                        <img src="/images/opa_3v2.png" class="bgcover bl brd4 wp100" style="background-image: url(https://upload.techflowpost.com//upload/images/20231120/2023112013095952669473.jpg);" /></a></dt>
+                                    <dd><a href="/article/detail_14594.html" class="dfont row2">本周 Token 观察：比特币支持者当选阿根廷总统，OpenAI 内斗让 AI 赛道再度火热</a><p>2023.11.20 </p>
+                                    </dd>
+                                </dl>
+                            
+                                <dl>
+                                    <dt class="f0 dfont"><a href="/article/detail_14586.html">
+                                        <img src="/images/opa_3v2.png" class="bgcover bl brd4 wp100" style="background-image: url(https://upload.techflowpost.com//upload/images/20231118/2023111814425691816525.png);" /></a></dt>
+                                    <dd><a href="/article/detail_14586.html" class="dfont row2">解读 bittensor (TAO) :  野心巨大的 AI 乐高，让算法变得可组合</a><p>2023.11.18 </p>
+                                    </dd>
+                                </dl>
+                            
+                                <dl>
+                                    <dt class="f0 dfont"><a href="/article/detail_14584.html">
+                                        <img src="/images/opa_3v2.png" class="bgcover bl brd4 wp100" style="background-image: url(https://upload.techflowpost.com//upload/images/20231118/2023111809045638749685.jpeg);" /></a></dt>
+                                    <dd><a href="/article/detail_14584.html" class="dfont row2">详解 Root Network：任意代币均可充当gas费，项目间的无缝连接还有多远？</a><p>2023.11.18 </p>
+                                    </dd>
+                                </dl>
+                            
+                                <dl>
+                                    <dt class="f0 dfont"><a href="/article/detail_14579.html">
+                                        <img src="/images/opa_3v2.png" class="bgcover bl brd4 wp100" style="background-image: url(https://upload.techflowpost.com//upload/images/20231117/2023111716290502191879.png);" /></a></dt>
+                                    <dd><a href="/article/detail_14579.html" class="dfont row2">Spacemesh：硬盘挖矿人人可参与，号称要做人民的货币</a><p>2023.11.17 </p>
+                                    </dd>
+                                </dl>
+                            
+                                <dl>
+                                    <dt class="f0 dfont"><a href="/article/detail_14564.html">
+                                        <img src="/images/opa_3v2.png" class="bgcover bl brd4 wp100" style="background-image: url(https://upload.techflowpost.com//upload/images/20231116/2023111614011504613839.jpeg);" /></a></dt>
+                                    <dd><a href="/article/detail_14564.html" class="dfont row2">Backpack ：FTX 前高管再创业，打新活动传言引发社区 FOMO（附注册步骤）</a><p>2023.11.16 </p>
+                                    </dd>
+                                </dl>
+                            
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <script type="text/javascript" src="/js/html2canvas.min.js"></script>
+    <script type="text/javascript" src="/js/qrcode.min.js"></script>
+    <script type="text/javascript" src="/js/clipboard.min.js"></script>
+    <div id="capture" class="share_pic">
+        <p class="bg"></p>
+        <div class="content">
+            <div class="head">
+                <i class="vtop dl dot"></i><i class="vtop dl">TechFlow Selected</i><i class="vtop dl">深潮精选</i>
+            </div>
+            <div class="img">
+                <img src="/images/opa_5v2.png" class="wp100 bgcover bl" style="background-image: url(https://upload.techflowpost.com//upload/images/20231120/2023112014310375531516.jpeg)" crossorigin="anonymous" />
+            </div>
+            <div class="tit row2">详解 Fren Pet ：Base 链上的电子宠物，如何将收益最大化？</div>
+            <div class="des">
+                在游戏里，你需要照顾你的宠物以避免它死亡，通过投喂食物或清洗会延长宠物的死亡时间。
+            </div>
+            <div class="mask"></div>
+            <div class="time clearfix">
+                <i>2023.11.20</i>
+
+                
+                        <em></em>
+                    
+            </div>
+
+            <div class="copy">
+                <i class="logo"></i>
+                <i class="logo2"></i>
+                <i class="logo3"></i>
+            </div>
+            <div class="qr">
+                <img src="/images/creat_logo.png" class="logo lt50"><div id="ewmimg"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="created" class="share_pic">
+        <img class="showImg wp100" />
+    </div>
+
+    <script>            
+        //亮黑切换
+        localStorage.getItem("skin_switch") == "1" ? document.getElementsByTagName('body')[0].classList.add('dark') : '';
+
+        //生成海报
+        function creatphoto() {
+            //console.log("正在生成...");
+
+            dialog3($("#created").html(), 360, 640);
+            //return false
+        }
+
+        $(function () {
+            $("#capture .tit").html(subString($("#capture .tit").text(), 48));
+            new QRCode(document.getElementById("ewmimg"), "https://m.techflowpost.com/article/detail_14596.html");
+            setTimeout(function () {
+                $(".bshare-weixin img").attr("src", $("#ewmimg img").attr("src"));
+            }, 500)
+            setTimeout(function () {
+                html2canvas(document.querySelector("#capture"), {
+                    useCORS: true
+                }).then(canvas => {
+                    var showImg = $(".showImg")[0];
+                    var dataUrl = canvas.toDataURL("image/png");
+                    showImg.setAttribute("src", dataUrl);
+                    //$(".footer").append(canvas.toDataURL("image/png"))
+                });
+
+            }, 100)
+            //一键复制
+            var clipboard = new Clipboard('.bshare-clipboard');
+            clipboard.on('success', function (e) {
+                error("复制链接成功");
+            });
+            $(".collect").click(function () {
+                var obj = $(this);
+                $.post('/ashx/user_set.ashx', { type: "文章", narticle_id:14596 }, function (res) {
+                let data = eval('(' + res + ')');
+                if (data.success == "Y") {
+                    if (data.msg == "收藏成功") {
+                        $(obj).addClass("fvd changeico");
+                        $(obj).html("<b class=\"dl vmid mr10 f0\"><img src=\"/images/favor_ed_ico.svg\" class=\"h16 vmid\" /><img src=\"/images/favor_ed_h_ico.svg\" class=\"h16 vmid\" /></b><em>已经收藏</em>");
+                    }
+                    else {
+                        $(obj).removeClass("fvd changeico");
+                        $(obj).html("<img src=\"/images/favor_ico.svg\" class=\"h16 dl vmid mr10\" /><em>添加收藏</em>");
+                    }
+
+
+                } else {
+                    if (data.msg == "请先登录") {
+                        dialog("/dialog/login.html", 860, 520);
+                    }
+                    else {
+                        error(data.msg);
+                    }
+
+
+                }
+
+            });
+
+
+
+
+        })
+
+            $("#share_action2 a").click(function () {
+                if ($(this).hasClass("bshare-twitter")) {
+                    $("#share_action a.bshare-twitter").eq(0).click();
+                }
+                else if ($(this).hasClass("bshare-weixin")) {
+                    $("#share_action a.bshare-weixin").eq(0).click();
+                }
+                else if ($(this).hasClass("bshare-sinaminiblog")) {
+                    $("#share_action a.bshare-sinaminiblog").eq(0).click();
+                }
+                else if ($(this).hasClass("bshare-clipboard")) {
+                    $("#share_action a.bshare-clipboard").eq(0).click();
+                }
+            })
+
+
+        })
+    </script>
+
+
+        </div>
+
+        <div class="footer dbd clearfix">
+            <div class="fleft">
+                <div class="logo">
+                    <img src="/images/logo.svg" class="vmid" />
+                </div>
+                <div class="content">
+                    <div class="des">专注Web3行业深度报道，洞察潮水流动的方向</div>
+                    <div class="btlink font-g">
+                        <a href="javascript:;" class="tougao"><i class="vmid dl">我要投稿</i><img src="/images/footer_email_ico.svg" class="vmid dl" /></a><a href="javascript:;" class="baodao"><i class="vmid dl">寻求报道</i><img src="/images/footer_msg_ico.svg" class="vmid dl" /></a>
+                    </div>
+                    <div class="copy tbig">Hainan Chaodong Technology Co., Ltd.   联系我们 / support@techflowpost.com <a href="https://beian.miit.gov.cn/#/Integrated/index" target="_blank" style="color:#fff;opacity:.5;"> 琼ICP备2022009338号</a></div>
+                </div>
+            </div>
+            <div class="fright">
+                <p class="f20 tit">FOLLOW US</p>
+                <div class="sns">
+                    <a href="javascript:;">
+                        <img src="/images/sns_1.svg" /><p>
+                            <img src="https://upload.techflowpost.com/upload/images/20230304/2023030414484748194768.jpg" /><i>扫码关注公众号</i>
+                        </p>
+                    </a><a href="https://twitter.com/TechFlowPost" target="_blank">
+                        <img src="/images/sns_2.svg" /></a><a href="https://substack.com/profile/26289587-techflow?utm_source=substack&utm_medium=email" target="_blank"><img src="/images/sns_3.svg" /></a><a href="https://www.youtube.com/channel/UCMN-hG9y4jcqd0lpFzlTIsg" target="_blank"><img src="/images/sns_4.svg" /></a><a href="https://t.me/TechFlowDaily" target="_blank"><img src="/images/sns_5.svg" /><div>电报群</div></a><a href="https://t.me/zolo_techflow" target="_blank"><img src="/images/sns_6.svg" /><div>商务合作</div></a></div>
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+    
+
+
+    
+    <script>        
+        $(function () {
+            mobT();
+           
+            $(".tougao").click(function(){
+                dialog("/dialog/tougao.html",860,600);
+            })
+            $(".baodao").click(function(){
+                dialog("/dialog/baodao.html", 860,600);
+            })
+        })
+            
+
+            function out(){
+                $.post('/ashx/out_user.ashx', { }, function (res) {
+                    let data = eval('(' + res + ')');
+                    if (data.success == "Y") {
+                        window.location.reload();
+
+                    } else {
+                 
+                    }
+              
+                });
+            }
+
+    </script>
+</body>
+</html>
